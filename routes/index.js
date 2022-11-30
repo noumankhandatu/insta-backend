@@ -73,13 +73,11 @@ router.post("/signin", async (req, res) => {
     const token = jwt.sign({ id: response.id }, jwtToken);
     const { _id, name, email, userName } = response;
     if (token) {
-      return res
-        .status(200)
-        .json({
-          message: "User SignIn SuccessFully",
-          token: token,
-          user: { _id, name, email, userName },
-        });
+      return res.status(200).json({
+        message: "User SignIn SuccessFully",
+        token: token,
+        user: { _id, name, email, userName },
+      });
     }
   }
   if (!response) {
